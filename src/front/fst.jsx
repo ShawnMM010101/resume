@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import wengweng from '../assets/wengweng.pdf'
 import profile from '../assets/profile.jpg'
+import chatgpt from '../assets/chatgpt.png'
+import claudeai from '../assets/claudeai.png'
+import grokai from '../assets/grok.png'
 import { SiReact,SiVite,SiDjango,SiLaravel,SiScikitlearn,SiTailwindcss,SiNodedotjs,SiMariadbfoundation,SiNextdotjs,SiTypescript,SiGraphql,SiRust,SiTauri,SiSqlite,SiWebrtc,SiGo,SiRedis,SiDocker,SiKubernetes,} from 'react-icons/si'
 
 const TECH_ICONS = { React: SiReact,TailwindCSS: SiTailwindcss,Django: SiDjango,MariaDB: SiMariadbfoundation,'Scikit Learn': SiScikitlearn,Laravel: SiLaravel,Vite: SiVite,'Node.js': SiNodedotjs,'Next.js': SiNextdotjs,TypeScript: SiTypescript,GraphQL: SiGraphql,Rust: SiRust,Tauri: SiTauri,SQLite: SiSqlite,WebRTC: SiWebrtc,Go: SiGo,Redis: SiRedis,Docker: SiDocker,Kubernetes: SiKubernetes,}
-
+const AI = { 'ChatGPT': chatgpt, 'ClaudeAI': claudeai, 'GrokAI': grokai }
 const TOOLS = [ 'React','TailwindCSS','Django','MariaDB','Scikit Learn','Laravel','Vite','Node.js',]
+const AITOOLS = [ 'ChatGPT', 'ClaudeAI', 'GrokAI' ]
 
 const BADGE_CLASSES = 'inline-flex items-center justify-center gap-1.5 h-8 min-w-8 px-2 rounded-full border bg-white/80 dark:bg-slate-700/80 text-slate-600 dark:text-slate-300 border-slate-200/50 dark:border-slate-600/50'
 
@@ -15,6 +19,18 @@ export function TechIcon({ name, showLabel = false }) {
   return (
     <span role="img" aria-label={name} title={name} className={BADGE_CLASSES}>
       {Icon && <Icon className="h-4 w-4" aria-hidden="true" />}
+      {(showLabel || !Icon) && <span className="text-xs font-medium">{name}</span>}
+    </span>
+  )
+}
+export function AIIcon({ name, showLabel = false }) {
+  const icon = Object.hasOwn(AI, name) ? AI[name] : null
+  const isImage = typeof icon === 'string'
+  const Icon = isImage ? null : icon
+  return (
+    <span role="img" aria-label={name} title={name} className={BADGE_CLASSES}>
+      {isImage && ( <img src={icon} className="h-4 w-4 size-5" aria-hidden="true" />)}
+      {Icon && <Icon className="h-4 w-4 size-36" aria-hidden="true" />}
       {(showLabel || !Icon) && <span className="text-xs font-medium">{name}</span>}
     </span>
   )
@@ -66,12 +82,12 @@ function Resume() {
         >
           <img
             src={profile}
-            alt="Shanw Michael M. Mayagma"
+            alt="Shawn Michael M. Mayagma"
             className="w-32 h-40 object-cover object-center rounded-xl mx-auto mb-6"
           />
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-600 to-purple-600 dark:from-white dark:via-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-4 animate-fade-in-up">
-            Shanw Michael M. Mayagma
+            Shawn Michael M. Mayagma
           </h1>
 
           <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
@@ -306,27 +322,6 @@ function Resume() {
                   link: '#',
                   color: 'from-blue-500 to-cyan-500'
                 },
-                {
-                  title: 'DevMetrics',
-                  description: 'Developer productivity dashboard integrating with GitHub, Jira, and CI/CD pipelines.',
-                  tech: ['Next.js', 'TypeScript', 'GraphQL', 'D3.js'],
-                  link: '#',
-                  color: 'from-purple-500 to-pink-500'
-                },
-                {
-                  title: 'CloudSync',
-                  description: 'File synchronization service with end-to-end encryption and cross-platform support.',
-                  tech: ['Rust', 'Tauri', 'SQLite', 'WebRTC'],
-                  link: '#',
-                  color: 'from-emerald-500 to-teal-500'
-                },
-                {
-                  title: 'API Gateway',
-                  description: 'High-performance API gateway with rate limiting, authentication, and analytics.',
-                  tech: ['Go', 'Redis', 'Docker', 'Kubernetes'],
-                  link: '#',
-                  color: 'from-orange-500 to-red-500'
-                },
               ].map((project, index) => (
                 <article
                   key={project.title}
@@ -364,7 +359,7 @@ function Resume() {
           <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-200/50 dark:border-slate-700/50 p-8 sm:p-10 shadow-xl">
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
               <span className="w-1 h-8 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
-              Tools & Technologies
+              Tools Technologies
             </h2>
             <div className="flex flex-wrap gap-3">
               {TOOLS.map((name) => (
@@ -374,11 +369,21 @@ function Resume() {
           </div>
         </section>
 
-        <section
-          id="education"
-          className="resume-section mb-16"
-          style={sectionStyle('education')}
-        >
+        <section id='aitools' className='resume-section mb-16' style={sectionStyle('aitools')}>
+          <div className='bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-200/50 dark:border-slate-700/50 p-8 sm:p-10 shadow-x1'>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+              <span className="w-1 h-8 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
+              Tools Technologies
+            </h2>
+            <div className="flex flex-wrap gap-3 ">
+              {AITOOLS.map((name) => (
+                <AIIcon key={name} name={name} showLabel />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="education"className="resume-section mb-16"style={sectionStyle('education')}>
           <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-200/50 dark:border-slate-700/50 p-8 sm:p-10 shadow-xl">
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
               <span className="w-1 h-8 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
