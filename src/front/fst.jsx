@@ -1,63 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import wengweng from '../assets/wengweng.pdf'
 import profile from '../assets/profile.jpg'
-import {
-  SiReact,
-  SiVite,
-  SiDjango,
-  SiLaravel,
-  SiScikitlearn,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiMariadbfoundation,
-  SiNextdotjs,
-  SiTypescript,
-  SiGraphql,
-  SiRust,
-  SiTauri,
-  SiSqlite,
-  SiWebrtc,
-  SiGo,
-  SiRedis,
-  SiDocker,
-  SiKubernetes,
-} from 'react-icons/si'
+import { SiReact,SiVite,SiDjango,SiLaravel,SiScikitlearn,SiTailwindcss,SiNodedotjs,SiMariadbfoundation,SiNextdotjs,SiTypescript,SiGraphql,SiRust,SiTauri,SiSqlite,SiWebrtc,SiGo,SiRedis,SiDocker,SiKubernetes,} from 'react-icons/si'
 
-const TECH_ICONS = {
-  React: SiReact,
-  TailwindCSS: SiTailwindcss,
-  Django: SiDjango,
-  MariaDB: SiMariadbfoundation,
-  'Scikit Learn': SiScikitlearn,
-  Laravel: SiLaravel,
-  Vite: SiVite,
-  'Node.js': SiNodedotjs,
-  'Next.js': SiNextdotjs,
-  TypeScript: SiTypescript,
-  GraphQL: SiGraphql,
-  Rust: SiRust,
-  Tauri: SiTauri,
-  SQLite: SiSqlite,
-  WebRTC: SiWebrtc,
-  Go: SiGo,
-  Redis: SiRedis,
-  Docker: SiDocker,
-  Kubernetes: SiKubernetes,
-}
+const TECH_ICONS = { React: SiReact,TailwindCSS: SiTailwindcss,Django: SiDjango,MariaDB: SiMariadbfoundation,'Scikit Learn': SiScikitlearn,Laravel: SiLaravel,Vite: SiVite,'Node.js': SiNodedotjs,'Next.js': SiNextdotjs,TypeScript: SiTypescript,GraphQL: SiGraphql,Rust: SiRust,Tauri: SiTauri,SQLite: SiSqlite,WebRTC: SiWebrtc,Go: SiGo,Redis: SiRedis,Docker: SiDocker,Kubernetes: SiKubernetes,}
 
-const TOOLS = [
-  'React',
-  'TailwindCSS',
-  'Django',
-  'MariaDB',
-  'Scikit Learn',
-  'Laravel',
-  'Vite',
-  'Node.js',
-]
+const TOOLS = [ 'React','TailwindCSS','Django','MariaDB','Scikit Learn','Laravel','Vite','Node.js',]
 
-const BADGE_CLASSES =
-  'inline-flex items-center justify-center gap-1.5 h-8 min-w-8 px-2 rounded-full border bg-white/80 dark:bg-slate-700/80 text-slate-600 dark:text-slate-300 border-slate-200/50 dark:border-slate-600/50'
+const BADGE_CLASSES = 'inline-flex items-center justify-center gap-1.5 h-8 min-w-8 px-2 rounded-full border bg-white/80 dark:bg-slate-700/80 text-slate-600 dark:text-slate-300 border-slate-200/50 dark:border-slate-600/50'
 
 export function TechIcon({ name, showLabel = false }) {
   const Icon = Object.hasOwn(TECH_ICONS, name) ? TECH_ICONS[name] : null
