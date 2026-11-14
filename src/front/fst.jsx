@@ -452,7 +452,7 @@ function Resume() {
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 <a
-                  href="mailto:shawn@example.com"
+                  href="mailto:shawnmichaelmoraniasmayagma03.com"
                   className="px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-slate-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                 >
                   Start a Conversation
