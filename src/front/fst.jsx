@@ -302,7 +302,7 @@ function Resume() {
 
         {/* SKILLS */}
         <Block id="skills">
-          <Title color="bg-[#B8F04A]" tilt="rotate-1">Skills</Title>
+          <Title color="bg-[#B8F04A]" tilt="rotate-1">Tech stack</Title>
           <div className="grid md:grid-cols-2 gap-10">
             {SKILL_GROUPS.map((group) => (
               <div key={group.category} className={`bg-white ${CARD} p-6`}>
