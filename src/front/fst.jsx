@@ -15,7 +15,8 @@ import { MdInsertDriveFile } from "react-icons/md";
 import { IoBookSharp } from "react-icons/io5";
 import { SiJupyter, SiPytorch, SiTensorflow, SiReact, SiVite, SiDjango, SiLaravel, SiScikitlearn, SiTailwindcss, SiNodedotjs, SiMariadbfoundation, SiNextdotjs, SiTypescript, SiGraphql, SiRust, SiTauri, SiSqlite, SiWebrtc, SiGo, SiRedis, SiDocker, SiKubernetes, SiW3Schools } from 'react-icons/si'
 
-
+const MINI = 'shadow-[0_1px_2px_rgba(0,0,0,.25),0_5px_8px_-3px_rgba(40,25,10,.45)]'
+const MINI_TILTS = ['-rotate-2', 'rotate-1', 'rotate-2', '-rotate-1', 'rotate-0']
 const TECH_ICONS = { 'Jupyter Notebook': SiJupyter, 'Vim': DiVim, 'VSCode': VscVscode , 'pytorch': SiPytorch, 'TensorFlow': SiTensorflow, 'testing': VscDebugAll, 'rlang': rlang, 'clanguage': clang, 'cpp': cpp, 'Html': FaHtml5, 'Python': FaPython, 'Github': FaGithub, 'React': SiReact, 'Tailwind': SiTailwindcss, Django: SiDjango, MariaDB: SiMariadbfoundation, 'Scikit Learn': SiScikitlearn, Laravel: SiLaravel, 'Vite': SiVite, 'Node.js': SiNodedotjs, 'Next.js': SiNextdotjs, TypeScript: SiTypescript, GraphQL: SiGraphql, Rust: SiRust, Tauri: SiTauri, SQLite: SiSqlite, WebRTC: SiWebrtc, Go: SiGo, Redis: SiRedis, Docker: SiDocker, Kubernetes: SiKubernetes, 'CSS': FaCss3, 'JS': IoLogoJavascript }
 const TOOLS = ['React', 'Tailwind', 'Django', 'MariaDB', 'Scikit Learn', 'Laravel', 'Vite', 'Node.js', 'TensorFlow', 'Scikit Learn', 'VSCode', 'Vim', 'Jupyter Notebook']
 const AI = { 'Any Sources From Internet': FaGlobe, 'Youtube': FaYoutube, 'ChatGPT': chatgpt, 'ClaudeAI': claudeai, 'GrokAI': grokai, 'W3School': SiW3Schools, 'Wikipedia': FaWikipediaW, 'Docs and PDF Files': MdInsertDriveFile, 'Online and Physical Books': IoBookSharp }
@@ -25,6 +26,14 @@ const BADGE_CLASSES = 'inline-flex items-center justify-center gap-2 h-10 min-w-
 const CARD = 'border-4 border-black shadow-[8px_8px_0_#000]'
 const BTN = 'inline-block border-4 border-black font-bold px-6 py-3 shadow-[5px_5px_0_#000] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_#000] active:translate-x-1 active:translate-y-1 active:shadow-none'
 
+function Note({ as: Tag = 'div', color = 'bg-[#FFEF7A]', tilt = '', pin = true, className = '', children }) {
+  return (
+    <Tag className={`note ${color} ${tilt} ${className} transition-transform duration-300 hover:rotate-0 hover:-translate-y-1`}>
+      {pin && <span aria-hidden="true" className="pin" />}
+      {children}
+    </Tag>
+  )
+}
 function IconView({ name, className = 'h-4 w-4' }) {
   const entry = name && Object.hasOwn(TECH_ICONS, name) ? TECH_ICONS[name] : null
   if (!entry) return null
@@ -67,35 +76,34 @@ const STYLES = `
 
 const SKILL_GROUPS = [
   {
-    category: 'Frontend', color: 'bg-[#FFD60A]', skills: [
-      { name: 'React JSX', level: 65, icon: 'React' },
-      { name: 'HTML', level: 90, icon: 'Html' },
-      { name: 'CSS', level: 80, icon: 'CSS' },
-      { name: 'Tailwind CSS', level: 95, icon: 'Tailwind' },
-      { name: 'JavaScript', level: 60, icon: 'JS' },
+    category: 'Frontend', color: 'bg-[#FFE98A]', skills: [
+      { name: 'React JSX', icon: 'React' },
+      { name: 'HTML', icon: 'Html' },
+      { name: 'CSS', icon: 'CSS' },
+      { name: 'Tailwind CSS', icon: 'Tailwind' },
+      { name: 'JavaScript', icon: 'JS' },
     ]
   },
   {
-    category: 'Backend', color: 'bg-[#FF6B9D]', skills: [
-      { name: 'Node.js', level: 90, icon: 'Node.js' },
-      { name: 'Python', level: 70, icon: 'Python' },
-      { name: 'MariaDB', level: 88, icon: 'MariaDB' },
-      { name: 'Django', level: 70, icon: 'Django' },
+    category: 'Backend', color: 'bg-[#FFC4D3]', skills: [
+      { name: 'Node.js', icon: 'Node.js' },
+      { name: 'Python', icon: 'Python' },
+      { name: 'MariaDB', icon: 'MariaDB' },
+      { name: 'Django', icon: 'Django' },
     ]
   },
   {
-    category: 'Tools', color: 'bg-[#4D8BFF]', skills: [
-      { name: 'Git/GitHub', level: 95, icon: 'Github' },
-      { name: 'Testing', level: 85, icon: 'testing' },
-      { name: 'Scikit Learn', level: 10, icon: 'Scikit Learn' }
-
+    category: 'Tools', color: 'bg-[#B9DAFF]', skills: [
+      { name: 'Git/GitHub', icon: 'Github' },
+      { name: 'Testing', icon: 'testing' },
+      { name: 'Scikit Learn', icon: 'Scikit Learn' },
     ]
   },
   {
-    category: 'Other languages', color: 'bg-[#B8F04A]', skills: [
-      { name: 'C++', level: 40, note: 'Still Practice ', icon: 'cpp' },
-      { name: 'C', level: 40, note: 'Still Practice', icon: 'clanguage' },
-      { name: 'R', level: 4, icon: 'rlang' },
+    category: 'Other languages', color: 'bg-[#C6EDB0]', skills: [
+      { name: 'C++', note: 'still practicing', icon: 'cpp' },
+      { name: 'C', note: 'still practicing', icon: 'clanguage' },
+      { name: 'R', icon: 'rlang' },
     ]
   },
 ]
@@ -303,32 +311,32 @@ function Resume() {
 
         {/* SKILLS */}
         <Block id="skills">
-          <Title color="bg-[#B8F04A]" tilt="rotate-1">Tech stack</Title>
+          <Title tilt="rotate-1">Tech stack</Title>
           <div className="grid md:grid-cols-2 gap-10">
-            {SKILL_GROUPS.map((group) => (
-              <div key={group.category} className={`bg-white ${CARD} p-6`}>
-                <h3 className={`nb-display inline-block text-2xl px-3 py-1 border-4 border-black mb-6 ${group.color}`}>{group.category}</h3>
-                <ul className="space-y-4">
-                  {group.skills.map((skill) => (
-                    <li key={skill.name}>
-                      <div className="flex justify-between font-bold mb-1">
-                        <span className="flex items-center gap-2">
-                          <IconView name={skill.icon} className="h-5 w-5" />
-                          {skill.name}
-                          {skill.note && <span className="text-sm font-medium">({skill.note})</span>}
-                        </span>
-                        <span>{skill.level}%</span>
-                      </div>
-                      <div className="h-6 border-4 border-black bg-white">
-                        <div className={`h-full border-r-4 border-black ${group.color}`} style={{ width: `${skill.level}%` }} />
-                      </div>
+            {SKILL_GROUPS.map((group, gi) => (
+              <Note
+                key={group.category}
+                color={group.color}
+                tilt={gi % 2 ? 'rotate-1' : '-rotate-1'}
+                className="p-6 pt-9" >
+                <h3 className="sn-hand text-4xl leading-none mb-5">{group.category}</h3>
+                <ul className="flex flex-wrap gap-3">
+                  {group.skills.map((skill, si) => (
+                    <li
+                      key={skill.name}
+                      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-[2px] bg-white/90 text-lg ${MINI} ${MINI_TILTS[(gi + si) % MINI_TILTS.length]}`}
+                    >
+                      <IconView name={skill.icon} className="h-5 w-5" />
+                      <span>{skill.name}</span>
+                      {skill.note && <span className="text-sm text-[#D64545]">({skill.note})</span>}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Note>
             ))}
           </div>
         </Block>
+
         {/* TOOLS + AI */}
         <Block id="tools" bg="bg-[#FFD60A]">
           <div className="grid md:grid-cols-2 gap-10">
