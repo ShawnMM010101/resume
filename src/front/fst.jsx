@@ -4,31 +4,42 @@ import profile from '../assets/profile.jpg'
 import chatgpt from '../assets/chatgpt.png'
 import claudeai from '../assets/claudeai.png'
 import grokai from '../assets/grok.png'
-import { FaCss3 } from "react-icons/fa";
+import rlang from '../assets/R.png'
+import clang from '../assets/cpp.png'
+import cpp from '../assets/cpp.png'
+import { FaCss3, FaHtml5, FaPython, FaGithub, FaWikipediaW } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
-import { SiReact, SiVite, SiDjango, SiLaravel, SiScikitlearn, SiTailwindcss, SiNodedotjs, SiMariadbfoundation, SiNextdotjs, SiTypescript, SiGraphql, SiRust, SiTauri, SiSqlite, SiWebrtc, SiGo, SiRedis, SiDocker, SiKubernetes, } from 'react-icons/si'
+import { VscDebugAll, VscVscode } from "react-icons/vsc";
+import { DiVim } from "react-icons/di";
+import { IoBookSharp } from "react-icons/io5";
+import { SiPytorch, SiTensorflow, SiReact, SiVite, SiDjango, SiLaravel, SiScikitlearn, SiTailwindcss, SiNodedotjs, SiMariadbfoundation, SiNextdotjs, SiTypescript, SiGraphql, SiRust, SiTauri, SiSqlite, SiWebrtc, SiGo, SiRedis, SiDocker, SiKubernetes, SiW3Schools } from 'react-icons/si'
 
-/*
-  Neo-brutalist palette
-  paper #FFF8E7 · black #000 · yellow #FFD60A · pink #FF6B9D · blue #4D8BFF · lime #B8F04A
-*/
 
-const TECH_ICONS = { 'React': SiReact, 'Tailwind': SiTailwindcss, Django: SiDjango, MariaDB: SiMariadbfoundation, 'Scikit Learn': SiScikitlearn, Laravel: SiLaravel, 'Vite': SiVite, 'Node.js': SiNodedotjs, 'Next.js': SiNextdotjs, TypeScript: SiTypescript, GraphQL: SiGraphql, Rust: SiRust, Tauri: SiTauri, SQLite: SiSqlite, WebRTC: SiWebrtc, Go: SiGo, Redis: SiRedis, Docker: SiDocker, Kubernetes: SiKubernetes, 'CSS': FaCss3, 'JS': IoLogoJavascript }
-const AI = { 'ChatGPT': chatgpt, 'ClaudeAI': claudeai, 'GrokAI': grokai }
-const TOOLS = ['React', 'Tailwind', 'Django', 'MariaDB', 'Scikit Learn', 'Laravel', 'Vite', 'Node.js',]
-const AITOOLS = ['ChatGPT', 'ClaudeAI', 'GrokAI']
+const TECH_ICONS = { 'Vim': DiVim, 'VSCode': VscVscode , 'pytorch': SiPytorch, 'TensorFlow': SiTensorflow, 'testing': VscDebugAll, 'rlang': rlang, 'clanguage': clang, 'cpp': cpp, 'Html': FaHtml5, 'Python': FaPython, 'Github': FaGithub, 'React': SiReact, 'Tailwind': SiTailwindcss, Django: SiDjango, MariaDB: SiMariadbfoundation, 'Scikit Learn': SiScikitlearn, Laravel: SiLaravel, 'Vite': SiVite, 'Node.js': SiNodedotjs, 'Next.js': SiNextdotjs, TypeScript: SiTypescript, GraphQL: SiGraphql, Rust: SiRust, Tauri: SiTauri, SQLite: SiSqlite, WebRTC: SiWebrtc, Go: SiGo, Redis: SiRedis, Docker: SiDocker, Kubernetes: SiKubernetes, 'CSS': FaCss3, 'JS': IoLogoJavascript }
+const AI = { 'ChatGPT': chatgpt, 'ClaudeAI': claudeai, 'GrokAI': grokai, 'W3School': SiW3Schools, 'Wikipedia': FaWikipediaW, 'Docs and PDF Files': IoBookSharp }
+const TOOLS = ['React', 'Tailwind', 'Django', 'MariaDB', 'Scikit Learn', 'Laravel', 'Vite', 'Node.js', 'TensorFlow', 'Scikit Learn' , 'VSCode', 'Vim']
+const AITOOLS = ['ChatGPT', 'ClaudeAI', 'GrokAI', 'W3School', 'Wikipedia', 'Docs and PDF Files']
 
 const BADGE_CLASSES = 'inline-flex items-center justify-center gap-2 h-10 min-w-10 px-3 border-[3px] border-black bg-white text-black font-bold text-sm shadow-[3px_3px_0_#000]'
 const CARD = 'border-4 border-black shadow-[8px_8px_0_#000]'
 const BTN = 'inline-block border-4 border-black font-bold px-6 py-3 shadow-[5px_5px_0_#000] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_#000] active:translate-x-1 active:translate-y-1 active:shadow-none'
 
-export function TechIcon({ name, showLabel = false }) {
-  const Icon = Object.hasOwn(TECH_ICONS, name) ? TECH_ICONS[name] : null
+function IconView({ name, className = 'h-4 w-4' }) {
+  const entry = name && Object.hasOwn(TECH_ICONS, name) ? TECH_ICONS[name] : null
+  if (!entry) return null
+  if (typeof entry === 'string') {
+    return <img src={entry} alt="" className={`${className} object-contain`} aria-hidden="true" />
+  }
+  const Icon = entry
+  return <Icon className={className} aria-hidden="true" />
+}
 
+export function TechIcon({ name, showLabel = false }) {
+  const hasIcon = Object.hasOwn(TECH_ICONS, name)
   return (
     <span role="img" aria-label={name} title={name} className={BADGE_CLASSES}>
-      {Icon && <Icon className="h-4 w-4" aria-hidden="true" />}
-      {(showLabel || !Icon) && <span>{name}</span>}
+      <IconView name={name} />
+      {(showLabel || !hasIcon) && <span>{name}</span>}
     </span>
   )
 }
@@ -56,35 +67,34 @@ const STYLES = `
 const SKILL_GROUPS = [
   {
     category: 'Frontend', color: 'bg-[#FFD60A]', skills: [
-      { name: 'React JSX', level: 65 },
-      { name: 'HTML', level: 90 },
-      { name: 'CSS', level: 80 },
-      { name: 'Tailwind CSS', level: 95 },
-      { name: 'JavaScript', level: 60 },
+      { name: 'React JSX', level: 65, icon: 'React' },
+      { name: 'HTML', level: 90, icon: 'Html' },
+      { name: 'CSS', level: 80, icon: 'CSS' },
+      { name: 'Tailwind CSS', level: 95, icon: 'Tailwind' },
+      { name: 'JavaScript', level: 60, icon: 'JS' },
     ]
   },
   {
     category: 'Backend', color: 'bg-[#FF6B9D]', skills: [
-      { name: 'Node.js', level: 90 },
-      { name: 'Python', level: 70 },
-      { name: 'MariaDB', level: 88 },
-      { name: 'MongoDB', level: 10 },
-      { name: 'GraphQL', level: 85 },
-      { name: 'Django', level: 70 },
+      { name: 'Node.js', level: 90, icon: 'Node.js' },
+      { name: 'Python', level: 70, icon: 'Python' },
+      { name: 'MariaDB', level: 88, icon: 'MariaDB' },
+      { name: 'Django', level: 70, icon: 'Django' },
     ]
   },
   {
-    category: 'DevOps & Tools', color: 'bg-[#4D8BFF]', skills: [
-      { name: 'Git/GitHub', level: 95 },
-      { name: 'CI/CD', level: 88 },
-      { name: 'Testing', level: 85 },
+    category: 'Tools', color: 'bg-[#4D8BFF]', skills: [
+      { name: 'Git/GitHub', level: 95, icon: 'Github' },
+      { name: 'Testing', level: 85, icon: 'testing' },
+      { name: 'Scikit Learn', level: 10, icon: 'Scikit Learn' }
+
     ]
   },
   {
     category: 'Other languages', color: 'bg-[#B8F04A]', skills: [
-      { name: 'C++', level: 40, note: 'still learning' },
-      { name: 'C', level: 40, note: 'still learning' },
-      { name: 'R', level: 4 },
+      { name: 'C++', level: 40, note: 'Still Practice ', icon: 'cpp' },
+      { name: 'C', level: 40, note: 'Still Practice', icon: 'clanguage' },
+      { name: 'R', level: 4, icon: 'rlang' },
     ]
   },
 ]
@@ -301,9 +311,10 @@ function Resume() {
                   {group.skills.map((skill) => (
                     <li key={skill.name}>
                       <div className="flex justify-between font-bold mb-1">
-                        <span>
+                        <span className="flex items-center gap-2">
+                          <IconView name={skill.icon} className="h-5 w-5" />
                           {skill.name}
-                          {skill.note && <span className="ml-2 text-sm font-medium">({skill.note})</span>}
+                          {skill.note && <span className="text-sm font-medium">({skill.note})</span>}
                         </span>
                         <span>{skill.level}%</span>
                       </div>
@@ -317,7 +328,6 @@ function Resume() {
             ))}
           </div>
         </Block>
-
         {/* TOOLS + AI */}
         <Block id="tools" bg="bg-[#FFD60A]">
           <div className="grid md:grid-cols-2 gap-10">
@@ -327,8 +337,8 @@ function Resume() {
                 {TOOLS.map((name) => <TechIcon key={name} name={name} showLabel />)}
               </div>
             </div>
-            <div id="aitools" className={`bg-[#FF6B9D] ${CARD} p-6 md:p-8`}>
-              <h2 className="nb-display text-3xl md:text-4xl mb-6">AI tools</h2>
+            <div id="aitools" className={`bg-[#00008B] ${CARD} p-6 md:p-8`}>
+              <h2 className="nb-display text-3xl md:text-4xl mb-6">AI tools &amp; Sources</h2>
               <div className="flex flex-wrap gap-3">
                 {AITOOLS.map((name) => <AIIcon key={name} name={name} showLabel />)}
               </div>
