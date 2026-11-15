@@ -200,7 +200,7 @@ function Resume() {
               </a>
             ))}
             <a href={wengweng} className="px-4 py-1.5 border-[3px] border-black bg-[#FF6B9D] shadow-[3px_3px_0_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all">
-              PDF Resume
+              View My Resume
             </a>
           </div>
         </div>
@@ -218,7 +218,7 @@ function Resume() {
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
               <a href="#projects" className={`${BTN} bg-[#4D8BFF]`}>View projects</a>
-              <a href={wengweng} className={`${BTN} bg-white`}>PDF Resume</a>
+              <a href={wengweng} className={`${BTN} bg-white`}>View My Resume</a>
               <a
                 href="https://github.com/ShawnMM010101"
                 aria-label="GitHub"
@@ -246,8 +246,8 @@ function Resume() {
         {/* ABOUT */}
         <Block id="about" bg="bg-[#4D8BFF]">
           <Title color="bg-white">About me</Title>
-          <div className={`bg-white ${CARD} p-6 md:p-10 grid md:grid-cols-3 gap-8 text-lg leading-relaxed`}>
-            <p>I am passionate about expanding my knowledge and learning more about the ever-evolving world of technology and programming.</p>
+          <div className={`bg-green-500 ${CARD} p-6 md:p-10 grid md:grid-cols-3 gap-8 text-lg leading-relaxed`}>
+            <p>I am passionate about expanding my knowledge and learning more in the ever-evolving world of technology and programming.</p>
             <p>I am also eager to take on multiple tasks, manage my time effectively, and continuously improve my skills through my experiences.</p>
             <p>I strive to become more adaptable, responsible, and capable of handling challenges while growing both personally and professionally.</p>
           </div>
@@ -264,9 +264,9 @@ function Resume() {
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((t) => <TechIcon key={t} name={t} />)}
                 </div>
-                {project.link && (
+                {/*{project.link && (
                   <a href={project.link} className={`${BTN} bg-white self-start`}>View project</a>
-                )}
+                )}*/}
               </article>
             ))}
           </div>
@@ -373,7 +373,7 @@ function Resume() {
             I&rsquo;m open to new projects, creative ideas, and opportunities to be part of your vision.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="mailto:shawnmichaelmoraniasmayagma03.com" className={`${BTN} bg-[#FFD60A]`}>Send an email</a>
+            <a href="mailto:recipient@://:shawnmichaelmoraniasmayagma03.com" className={`${BTN} bg-[#FFD60A]`}>Send an email</a>
             <a href="#projects" className={`${BTN} bg-[#FF6B9D]`}>See my work</a>
           </div>
         </div>
