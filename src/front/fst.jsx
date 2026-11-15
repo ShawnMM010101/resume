@@ -213,7 +213,7 @@ function Resume() {
               Shawn Michael M. Mayagma
             </h1>
             <p className={`inline-block mt-8 ml-2 md:ml-10 bg-white ${CARD} px-5 py-3 text-lg md:text-2xl font-bold rotate-1`}>
-              Full stack developer. 4th-year IT student.
+             Expanding and Explorer Knowledge of Technologies. 4th-year IT student.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
               <a href="#projects" className={`${BTN} bg-[#4D8BFF]`}>View projects</a>
