@@ -11,14 +11,15 @@ import { FaCss3, FaHtml5, FaPython, FaGithub, FaWikipediaW } from "react-icons/f
 import { IoLogoJavascript } from "react-icons/io5";
 import { VscDebugAll, VscVscode } from "react-icons/vsc";
 import { DiVim } from "react-icons/di";
+import { MdInsertDriveFile } from "react-icons/md";
 import { IoBookSharp } from "react-icons/io5";
-import { SiPytorch, SiTensorflow, SiReact, SiVite, SiDjango, SiLaravel, SiScikitlearn, SiTailwindcss, SiNodedotjs, SiMariadbfoundation, SiNextdotjs, SiTypescript, SiGraphql, SiRust, SiTauri, SiSqlite, SiWebrtc, SiGo, SiRedis, SiDocker, SiKubernetes, SiW3Schools } from 'react-icons/si'
+import { SiJupyter, SiPytorch, SiTensorflow, SiReact, SiVite, SiDjango, SiLaravel, SiScikitlearn, SiTailwindcss, SiNodedotjs, SiMariadbfoundation, SiNextdotjs, SiTypescript, SiGraphql, SiRust, SiTauri, SiSqlite, SiWebrtc, SiGo, SiRedis, SiDocker, SiKubernetes, SiW3Schools } from 'react-icons/si'
 
 
-const TECH_ICONS = { 'Vim': DiVim, 'VSCode': VscVscode , 'pytorch': SiPytorch, 'TensorFlow': SiTensorflow, 'testing': VscDebugAll, 'rlang': rlang, 'clanguage': clang, 'cpp': cpp, 'Html': FaHtml5, 'Python': FaPython, 'Github': FaGithub, 'React': SiReact, 'Tailwind': SiTailwindcss, Django: SiDjango, MariaDB: SiMariadbfoundation, 'Scikit Learn': SiScikitlearn, Laravel: SiLaravel, 'Vite': SiVite, 'Node.js': SiNodedotjs, 'Next.js': SiNextdotjs, TypeScript: SiTypescript, GraphQL: SiGraphql, Rust: SiRust, Tauri: SiTauri, SQLite: SiSqlite, WebRTC: SiWebrtc, Go: SiGo, Redis: SiRedis, Docker: SiDocker, Kubernetes: SiKubernetes, 'CSS': FaCss3, 'JS': IoLogoJavascript }
-const AI = { 'ChatGPT': chatgpt, 'ClaudeAI': claudeai, 'GrokAI': grokai, 'W3School': SiW3Schools, 'Wikipedia': FaWikipediaW, 'Docs and PDF Files': IoBookSharp }
-const TOOLS = ['React', 'Tailwind', 'Django', 'MariaDB', 'Scikit Learn', 'Laravel', 'Vite', 'Node.js', 'TensorFlow', 'Scikit Learn' , 'VSCode', 'Vim']
-const AITOOLS = ['ChatGPT', 'ClaudeAI', 'GrokAI', 'W3School', 'Wikipedia', 'Docs and PDF Files']
+const TECH_ICONS = { 'Jupyter Notebook': SiJupyter, 'Vim': DiVim, 'VSCode': VscVscode , 'pytorch': SiPytorch, 'TensorFlow': SiTensorflow, 'testing': VscDebugAll, 'rlang': rlang, 'clanguage': clang, 'cpp': cpp, 'Html': FaHtml5, 'Python': FaPython, 'Github': FaGithub, 'React': SiReact, 'Tailwind': SiTailwindcss, Django: SiDjango, MariaDB: SiMariadbfoundation, 'Scikit Learn': SiScikitlearn, Laravel: SiLaravel, 'Vite': SiVite, 'Node.js': SiNodedotjs, 'Next.js': SiNextdotjs, TypeScript: SiTypescript, GraphQL: SiGraphql, Rust: SiRust, Tauri: SiTauri, SQLite: SiSqlite, WebRTC: SiWebrtc, Go: SiGo, Redis: SiRedis, Docker: SiDocker, Kubernetes: SiKubernetes, 'CSS': FaCss3, 'JS': IoLogoJavascript }
+const TOOLS = ['React', 'Tailwind', 'Django', 'MariaDB', 'Scikit Learn', 'Laravel', 'Vite', 'Node.js', 'TensorFlow', 'Scikit Learn', 'VSCode', 'Vim', 'Jupyter Notebook']
+const AI = { 'ChatGPT': chatgpt, 'ClaudeAI': claudeai, 'GrokAI': grokai, 'W3School': SiW3Schools, 'Wikipedia': FaWikipediaW, 'Docs and PDF Files': MdInsertDriveFile, 'Online and Physical Books': IoBookSharp }
+const AITOOLS = ['ChatGPT', 'ClaudeAI', 'GrokAI', 'W3School', 'Wikipedia', 'Docs and PDF Files', 'Online and Physical Books']
 
 const BADGE_CLASSES = 'inline-flex items-center justify-center gap-2 h-10 min-w-10 px-3 border-[3px] border-black bg-white text-black font-bold text-sm shadow-[3px_3px_0_#000]'
 const CARD = 'border-4 border-black shadow-[8px_8px_0_#000]'
